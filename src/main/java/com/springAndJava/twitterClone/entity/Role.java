@@ -8,7 +8,6 @@ import org.springframework.security.core.GrantedAuthority;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
 @Table(name = "user" , schema= "public")
 public class Role implements GrantedAuthority {
@@ -22,5 +21,17 @@ public class Role implements GrantedAuthority {
     @Override
     public String getAuthority() {
         return authority;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 }
