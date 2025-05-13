@@ -1,4 +1,4 @@
-package dto;
+package com.springAndJava.twitterClone.dto;
 
 import com.springAndJava.twitterClone.entity.User;
 
