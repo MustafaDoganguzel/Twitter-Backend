@@ -2,11 +2,14 @@ package com.springAndJava.twitterClone.service;
 
 import com.springAndJava.twitterClone.entity.Tweet;
 import com.springAndJava.twitterClone.repository.TweetRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Transactional
+@Service
 public class TweetServiceImpl implements TweetService{
 
     private final TweetRepository  tweetRepository;

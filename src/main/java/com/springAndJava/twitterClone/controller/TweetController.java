@@ -4,9 +4,9 @@ import com.springAndJava.twitterClone.entity.Tweet;
 import com.springAndJava.twitterClone.entity.User;
 import com.springAndJava.twitterClone.service.TweetService;
 import com.springAndJava.twitterClone.service.UserService;
-import dto.TweetResponse;
+import com.springAndJava.twitterClone.dto.TweetResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,13 +17,13 @@ public class TweetController {
 
     private final TweetService tweetService;
     private final UserService userService;
-
+    @Autowired
     public TweetController(TweetService tweetService, UserService userService) {
         this.tweetService = tweetService;
         this.userService = userService;
     }
 
-    @Autowired
+
 
 
     @PostMapping

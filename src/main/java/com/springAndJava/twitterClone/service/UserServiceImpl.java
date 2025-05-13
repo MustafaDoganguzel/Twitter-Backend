@@ -3,12 +3,18 @@ package com.springAndJava.twitterClone.service;
 
 import com.springAndJava.twitterClone.entity.User;
 import com.springAndJava.twitterClone.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-public class UserServiceImpl implements UserService {
+@Service
+@Transactional
+public class UserServiceImpl implements UserService , UserDetailsService {
 
     private final UserRepository userRepository;
 
@@ -41,5 +47,11 @@ public class UserServiceImpl implements UserService {
         User deletedUser = findById(id);
         userRepository.delete(deletedUser);
         return deletedUser;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByEmail(username)
+                .orElseThrow(()-> new UsernameNotFoundException("User couldnt found"));
     }
 }

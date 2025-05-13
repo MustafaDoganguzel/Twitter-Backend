@@ -2,11 +2,15 @@ package com.springAndJava.twitterClone.service;
 
 import com.springAndJava.twitterClone.entity.Like;
 import com.springAndJava.twitterClone.repository.LikeRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@Transactional
 public class LikeServiceImpl implements LikeService{
     private final LikeRepository likeRepository;
 
