@@ -10,7 +10,6 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
 @Table(name = "tweet" , schema= "public")
 public class Tweet {
@@ -18,6 +17,8 @@ public class Tweet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    @Column(name = "content")
     private String content;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
@@ -34,5 +35,51 @@ public class Tweet {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tweet")
     private List<Retweet>retweets = new ArrayList<>();
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Retweet> getRetweets() {
+        return retweets;
+    }
+
+    public void setRetweets(List<Retweet> retweets) {
+        this.retweets = retweets;
+    }
 }
