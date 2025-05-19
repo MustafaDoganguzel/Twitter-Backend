@@ -21,6 +21,8 @@ public class Tweet {
     @Column(name = "content")
     private String content;
 
+    private Integer retweetCount;
+
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
@@ -81,5 +83,13 @@ public class Tweet {
 
     public void setRetweets(List<Retweet> retweets) {
         this.retweets = retweets;
+    }
+
+    public Integer getRetweetCount() {
+        return retweetCount;
+    }
+
+    public void setRetweetCount(Integer retweetCount) {
+        this.retweetCount = retweetCount;
     }
 }

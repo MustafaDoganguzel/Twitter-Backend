@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
-
+// getter/setter/
 @Entity
 @Table(name = "user" , schema= "public")
 public class User implements UserDetails {
